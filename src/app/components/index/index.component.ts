@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Empresa } from 'src/app/models/empresa';
+import { EmpresaService } from 'src/app/services/empresa.service';
 
 @Component({
   selector: 'app-index',
@@ -7,9 +10,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class IndexComponent implements OnInit {
 
-  constructor() { }
+
+  lista: Empresa[] = [];
+  
+
+  constructor(private services: EmpresaService) { 
+    
+  }
 
   ngOnInit(): void {
+    this.listarEmpresas();
   }
+
+  private listarEmpresas(){
+    this.services.listar().subscribe(empresas => this.lista = empresas);
+  }
+  
+
 
 }

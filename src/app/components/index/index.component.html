@@ -1,1 +1,18 @@
-<p>index works!</p>
+<table width="50%" *ngIf="lista?.length > 0">
+    <tr>
+        <td width="50%">
+            <b>EMPRESA</b>
+        </td>
+        <td>
+            <b>VER PAGINA</b>
+        </td>
+    </tr>
+    <tr *ngFor="let empresa of lista">
+        <td>
+            {{empresa.denominacion}}
+        </td>
+        <td>
+            <a [routerLink]="['/home', empresa.id]">URL PAGINA HOME</a>
+        </td>
+    </tr>
+</table>
