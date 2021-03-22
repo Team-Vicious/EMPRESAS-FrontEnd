@@ -1,3 +1,5 @@
+import { Noticia } from "./noticia";
+
 export class Empresa {
     id!: number;
     denominacion!: string;
@@ -7,4 +9,5 @@ export class Empresa {
     iframe !: string;
     domicilio !: string;
     email !: string;
+    noticias!: Noticia[];
 }
