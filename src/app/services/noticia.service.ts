@@ -18,8 +18,8 @@ export class NoticiaService {
  
   
   //trae todas las noticias de la empresa
-  public verNoticiasPorId(id: number): Observable<Noticia>{
-    return this.http.get<Noticia>(`${this.baseEndPoint}/${id}/noticias`);
+  public verNoticiasPorId(id: number): Observable<Noticia[]>{
+    return this.http.get<Noticia[]>(`${this.baseEndPoint}/${id}/noticias`);
   }
 
   //trae las noticias por termino y id de la empresa en desc
