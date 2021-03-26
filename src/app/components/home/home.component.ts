@@ -14,6 +14,7 @@ import { NoticiaService } from 'src/app/services/noticia.service';
 export class HomeComponent implements OnInit {
 
   lista: Empresa[] = [];
+  empresa: Empresa;
   listaNoticia: Noticia[];
   cadanoticia: Noticia;
 
@@ -36,7 +37,12 @@ export class HomeComponent implements OnInit {
     this.services.listar().subscribe(empresas => {
       this.lista = empresas;
     });
+
+    
     let id= +this.route.snapshot.paramMap.get('id');
+
+    this.services.ver(id).subscribe(empresa => this.empresa = empresa);
+
     this.serviceNoticia.verNoticiasPorId(id).subscribe(noticias => this.listaNoticia = noticias);
 
   }
