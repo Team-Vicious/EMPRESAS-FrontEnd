@@ -1,1 +1,65 @@
-<p>buscador works!</p>
+<html lang="en">
+
+<body>
+
+  <!--========================================================
+                            HEADER
+  =========================================================-->
+  <header>
+    <nav class="navbar navbar-light bg-light">
+      <a class="navbar-brand">
+        <font size=12 face="Comic Sans MS,arial">{{empresa.denominacion}}</font>
+
+      </a>
+      <form class="form-inline">
+        <input class="form-control mr-sm-2" type="search" placeholder="Buscar Noticia" aria-label="Search" (keyup)="filtrar($event.target.value)">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit" [routerLink]="['/empresa', empresa.id, 'buscador', termino]">Search</button>
+      </form>
+    </nav>
+
+  </header>
+
+  <div class="card">
+    <div class="card-header">
+      Información
+    </div>
+    <div class="card-body">
+      <blockquote class="blockquote mb-0">
+        <footer class="blockquote-footer">
+          <p>Teléfono</p>
+          <a href="callto:#">{{empresa.telefono}}</a>
+          <p>Horario de atención</p>
+          <a href="callto:#">{{empresa.horarioAtencion}}</a>
+
+        </footer>
+      </blockquote>
+    </div>
+  </div>
+
+  <nav class="navbar navbar-light bg-light">
+    <form class="form-inline">
+      <button class="btn btn-outline-success" type="button" [routerLink]="['/home', empresa.id]">Inicio</button>
+      <button class="btn btn-sm btn-outline-secondary" type="button" routerLink="/index">Listar Empresas</button>
+    </form>
+  </nav>
+
+  <div class="card">
+    <div class="card-header">
+
+    </div>
+    <div class="resultadoBusqueda">
+      <h1>Resultado de busqueda: {{termino}}</h1>
+      <p>ACA VAN LAS NOTICIAS</p>
+      <a href="">aca se pueden mostrar tarjetas con un ngFro con noticias y su info, y un boton que diga VER y abra la
+        noticia</a>
+    </div>
+    <p></p>
+    <button class="btn btn-outline-success" type="button" routerLink="/empresa/1/detalle-noticia/1">Visitar Componente Detalle Noticia</button>
+
+  </div>
+
+  
+</body>
+
+
+</html>

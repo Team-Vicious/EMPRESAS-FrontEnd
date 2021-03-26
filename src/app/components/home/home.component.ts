@@ -14,8 +14,10 @@ import { NoticiaService } from 'src/app/services/noticia.service';
 export class HomeComponent implements OnInit {
 
   lista: Empresa[] = [];
+  empresa: Empresa;
   listaNoticia: Noticia[];
   cadanoticia: Noticia;
+  termino: string;
 
   constructor(
     private services: EmpresaService,
@@ -36,12 +38,23 @@ export class HomeComponent implements OnInit {
     this.services.listar().subscribe(empresas => {
       this.lista = empresas;
     });
+
+    
     let id= +this.route.snapshot.paramMap.get('id');
+
+    this.services.ver(id).subscribe(empresa => this.empresa = empresa);
+
     this.serviceNoticia.verNoticiasPorId(id).subscribe(noticias => this.listaNoticia = noticias);
 
   }
 
- 
+  //mientras escribis va tomando lo ingresado en el imput del buscador gracias al $event
+  filtrar(termino: string):void {
+    termino = termino !== undefined? termino.trim(): '';
+    if(termino !== ''){
+      this.termino = termino;
+    }
+  }
   
 
 }

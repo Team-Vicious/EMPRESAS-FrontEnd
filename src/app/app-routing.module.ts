@@ -9,8 +9,8 @@ const routes: Routes = [
   {path: '', pathMatch: 'full', redirectTo: 'index'},
   {path: 'index', component: IndexComponent},
   {path: 'home/:id', component: HomeComponent},
-  {path: 'buscador/:termino', component: BuscadorComponent},
-  {path: 'detalle', component: DetalleComponent}
+  {path: 'empresa/:id/buscador/:termino', component: BuscadorComponent},
+  {path: 'empresa/:id/detalle-noticia/:idn', component: DetalleComponent}
 ];
 
 @NgModule({
