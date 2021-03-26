@@ -17,6 +17,7 @@ export class HomeComponent implements OnInit {
   empresa: Empresa;
   listaNoticia: Noticia[];
   cadanoticia: Noticia;
+  termino: string;
 
   constructor(
     private services: EmpresaService,
@@ -47,7 +48,13 @@ export class HomeComponent implements OnInit {
 
   }
 
- 
+  //mientras escribis va tomando lo ingresado en el imput del buscador gracias al $event
+  filtrar(termino: string):void {
+    termino = termino !== undefined? termino.trim(): '';
+    if(termino !== ''){
+      this.termino = termino;
+    }
+  }
   
 
 }
