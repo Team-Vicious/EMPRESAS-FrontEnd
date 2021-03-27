@@ -34,4 +34,10 @@ export class NoticiaService {
     .set('size', size);
     return this.http.get<Noticia>(`${this.baseEndPoint}/${id}/noticias-filtrar/${term}/paged`,{params: params});
   }
+
+  //trae las noticias en una lista por termino y id de la empresa en desc 
+  public verArregloNoticiasPorTerminoAndId(id: number,term: string): Observable<Noticia[]>{
+    return this.http.get<Noticia[]>(`${this.baseEndPoint}/${id}/noticias-filtrar/${term}`);
+  }
+  
 }

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Observable } from 'rxjs';
 import { Empresa } from 'src/app/models/empresa';
 import { Noticia } from 'src/app/models/noticia';
 import { EmpresaService } from 'src/app/services/empresa.service';
@@ -18,6 +17,17 @@ export class HomeComponent implements OnInit {
   listaNoticia: Noticia[];
   cadanoticia: Noticia;
   termino: string;
+
+  title = 'empresa';
+
+  position={
+    lat: 0,
+    lng: 0
+  }
+
+  label = {
+    color: 'red'
+  }
 
   constructor(
     private services: EmpresaService,
@@ -42,9 +52,15 @@ export class HomeComponent implements OnInit {
     
     let id= +this.route.snapshot.paramMap.get('id');
 
-    this.services.ver(id).subscribe(empresa => this.empresa = empresa);
+    this.services.ver(id).subscribe(empresa =>{ 
+      this.empresa = empresa
+      this.position.lat = -33.1491438;
+      this.position.lng = -68.484991;
+      
+    });
 
     this.serviceNoticia.verNoticiasPorId(id).subscribe(noticias => this.listaNoticia = noticias);
+
 
   }
 
@@ -55,6 +71,8 @@ export class HomeComponent implements OnInit {
       this.termino = termino;
     }
   }
+
+
   
 
 }

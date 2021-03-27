@@ -12,7 +12,7 @@
 
       </a>
       <form class="form-inline">
-        <input class="form-control mr-sm-2" type="search" placeholder="Buscar Noticia" aria-label="Search" (keyup)="filtrar($event.target.value)">
+        <input class="form-control mr-sm-2" type="search"   placeholder="Buscar Noticia" aria-label="Search" (keyup)="filtrar($event.target.value)" >
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit" [routerLink]="['/empresa', empresa.id, 'buscador', termino]">Search</button>
       </form>
     </nav>
@@ -45,21 +45,26 @@
 
   <div class="card">
     <div class="card-header">
-
+      
     </div>
-    <div class="resultadoBusqueda">
+    <div class="buscarTerminoEnNoticias(empresa.id,termino)">
       <h1>Resultado de busqueda: {{termino}}</h1>
-      <p>ACA VAN LAS NOTICIAS</p>
+      
+
+
       <a href="">aca se pueden mostrar tarjetas con un ngFro con noticias y su info, y un boton que diga VER y abra la
-        noticia</a>
+        noticia
+        --------------------------------------
+        <div class="card" style="width: 18rem;" *ngFor="let noticia of listaNoticia">
+          <img src="..." class="card-img-top" alt="...">
+          <div class="card-body"  >
+            <h5 class="card-title">{{noticia.titulo}}</h5>
+            <p class="card-text">{{noticia.resumen}}</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+          </div>
+        </div>
+        ------------------------------
+      </a>
     </div>
     <p></p>
-    <button class="btn btn-outline-success" type="button" routerLink="/empresa/1/detalle-noticia/1">Visitar Componente Detalle Noticia</button>
-
-  </div>
-
-  
-</body>
-
-
-</html>
+    <button class="btn btn-outline-success" type="button"  routerLink="/empresa/1/detalle-noticia/1">Visitar Componente Detalle Noticia</button>

@@ -13,8 +13,11 @@ import { NoticiaService } from 'src/app/services/noticia.service';
 export class BuscadorComponent implements OnInit {
 
   empresa: Empresa;
-  listaNoticia: Noticia[];
+  listaNoticia: Noticia[] = [];
+  noticia: Noticia[] = [];
   termino: string;
+  posicion: number;
+  noticiaEncontrada: string;
 
   constructor(
     private services: EmpresaService,
@@ -22,32 +25,39 @@ export class BuscadorComponent implements OnInit {
     private route: ActivatedRoute,
     private route2: ActivatedRoute,
     private router: Router
-  ) { 
-    
+  ) {
+
   }
 
   ngOnInit(): void {
     this.listarEmpresas();
+    //this.buscarTerminoEnNoticias(this.empresa.id, this.termino)
   }
 
-  private listarEmpresas(){
-    
-    let id= +this.route.snapshot.paramMap.get('id');
+  private listarEmpresas() {
+
+    let id = +this.route.snapshot.paramMap.get('id');
 
     this.services.ver(id).subscribe(empresa => this.empresa = empresa);
 
     this.termino = this.route2.snapshot.paramMap.get('termino');
 
-    //cambiar a bucar noticias por termino!!!!!!!!!!!!!!!!!!
-    this.serviceNoticia.verNoticiasPorId(id).subscribe(noticias => this.listaNoticia = noticias);
-
+   
+    this.serviceNoticia.verArregloNoticiasPorTerminoAndId(id, this.termino).
+      subscribe(noticia => this.listaNoticia = noticia)
+      console.log(this.listaNoticia)
   }
+  
+
 
   //mientras escribis va tomando lo ingresado en el imput del buscador gracias al $event
-  filtrar(termino: string):void {
-    termino = termino !== undefined? termino.trim(): '';
-    if(termino !== ''){
+  filtrar(termino: string): void {
+    termino = termino !== undefined ? termino.trim() : '';
+    if (termino !== '') {
       this.termino = termino;
     }
   }
+
+  
+
 }
