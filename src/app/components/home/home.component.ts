@@ -54,8 +54,8 @@ export class HomeComponent implements OnInit {
 
     this.services.ver(id).subscribe(empresa =>{ 
       this.empresa = empresa
-      this.position.lat = -33.1491438;
-      this.position.lng = -68.484991;
+      this.position.lat = +empresa.latitud;
+      this.position.lng = +empresa.longitud;
       
     });
 

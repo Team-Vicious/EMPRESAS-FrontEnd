@@ -5,21 +5,25 @@
   <!--========================================================
                             HEADER
   =========================================================-->
-  <header>
+  <header >
     <nav class="navbar navbar-light bg-light">
+      
       <a class="navbar-brand">
         <font size=12 face="Comic Sans MS,arial">{{empresa?.denominacion}}</font>
 
       </a>
       <form class="form-inline">
-        <input class="form-control mr-sm-2" type="search" placeholder="Buscar Noticia" aria-label="Search" (keyup)="filtrar($event.target.value)">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit" [routerLink]="['/empresa', empresa.id, 'buscador', termino]">Search</button>
+        <input class="form-control mr-sm-2" type="search" placeholder="Buscar Noticia" aria-label="Search"
+          (keyup)="filtrar($event.target.value)">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit"
+          [routerLink]="['/empresa', empresa.id, 'buscador', termino]">Search</button>
       </form>
     </nav>
 
   </header>
 
-  <div class="card">
+  
+  <div class="card" style="color:black; margin: 2rem; background-color:paleturquoise;">
     <div class="card-header">
       Información
     </div>
@@ -36,18 +40,20 @@
     </div>
   </div>
 
-  <nav class="navbar navbar-light bg-light">
-    <form class="form-inline">
-      <button class="btn btn-outline-success" type="button" [routerLink]="['/home', empresa.id]">Inicio</button>
+  <div class= "card" style="color:black; margin: 2rem; background-color:darkgrey;">
+    <nav class="navbar navbar-light bg-light">
+      <form class="form-inline">
+        <button class="btn btn-outline-success" type="button" [routerLink]="['/home', empresa.id]">Inicio</button>
+        <button class="btn btn-sm btn-outline-secondary" type="button" routerLink="/index">Listar Empresas</button>
+      </form>
+    </nav>
+  </div>
 
-      <button class="btn btn-sm btn-outline-secondary" type="button" routerLink="/index">Listar Empresas</button>
-    </form>
-  </nav>
-
+  
   <!--========================================================
                             CONTENT
   =========================================================-->
-  
+
 
   <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
@@ -56,25 +62,32 @@
       <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
     </ol>
     <div class="carousel-inner">
-      <div class="carousel-item active" [routerLink]="['/empresa/{{empresa.id}}/detalle-noticia/0']" >
-        <img class="d-block w-100" [src]="'/assets/images/page-1_slide1.jpg'" alt="First slide">
+      <div class="carousel-item active"
+        [routerLink]="['/empresa/{{empresa.id}}/detalle-noticia/{{listaNoticia[0].id}}']">
+        <img class="d-block w-100" src="/assets/images/{{listaNoticia[0].imagen}}" alt="First slide" width="400"
+          height="450">
         <div class="carousel-caption d-none d-md-block">
-          <h5 class="letraTitulo">{{listaNoticia[0].titulo}}</h5>
+          <h2 class="letraTitulo">{{listaNoticia[0].titulo}}</h2>
+          <p>------------------------------------------------</p>
           <p class="letraResumen">{{listaNoticia[0]?.resumen}}</p>
         </div>
       </div>
-      <div class="carousel-item">
-        <img class="d-block w-100" [src]="'/assets/images/page-1_slide2.jpg'" alt="Second slide">
+      <div class="carousel-item" [routerLink]="['/empresa/{{empresa.id}}/detalle-noticia/{{listaNoticia[1].id}}']">
+        <img class="d-block w-100" src="/assets/images/{{listaNoticia[1].imagen}}" alt="Second slide" width="400"
+          height="450">
         <div class="carousel-caption d-none d-md-block">
           <h5 class="letraTitulo">{{listaNoticia[1]?.titulo}}</h5>
+          <p>------------------------------------------------</p>
           <p class="letraResumen">{{listaNoticia[1]?.resumen}}</p>
         </div>
       </div>
-      <div class="carousel-item">
-        <img class="d-block w-100" [src]="'/assets/images/page-1_slide3.jpg'" alt="Third slide">
+      <div class="carousel-item" [routerLink]="['/empresa/{{empresa.id}}/detalle-noticia/{{listaNoticia[2].id}}']">
+        <img class="d-block w-100" src="/assets/images/{{listaNoticia[2].imagen}}" alt="Third slide" width="400"
+          height="450">
         <div class="carousel-caption d-none d-md-block">
           <h5 class="letraTitulo">{{listaNoticia[2]?.titulo}}</h5>
-          <p>{{listaNoticia[2]?.resumen}}</p>
+          <p>------------------------------------------------</p>
+          <p class="letraResumen">{{listaNoticia[2]?.resumen}}</p>
         </div>
       </div>
     </div>
@@ -88,17 +101,16 @@
     </a>
   </div>
 
-  </body>
+</body>
 
 
-  <!--========================================================
+<!--========================================================
                             FOOTER
   =========================================================-->
-  
-  <footer>
-  <div class="card" >
-    <div class="card-header">
-    </div>
+  <h1 style="color:black; margin: 2rem; background-color:paleturquoise;">-</h1>
+<footer>
+  <div class="card">
+   
     <div class="card-body">
       <blockquote class="blockquote mb-0">
         <h2 style="text-align:justify">
@@ -109,37 +121,42 @@
     </div>
   </div>
 
+  <h1 style="color:black; margin: 2rem; background-color:paleturquoise;">-</h1>
   <div class="card">
-    <div class="card-header">
-    </div>
+    
     <div class="card-body">
       <blockquote class="blockquote mb-0">
         <h2 style="text-align:justify">
           Donde estamos
         </h2>
       </blockquote>
-      <google-map width="1900" height="500" [center]="position">
-        <map-marker
-        [position]="position"
-        [label]="label"
-        [title]="title">
+      <google-map width="1300" height="500" [center]="position">
+        <map-marker [position]="position" [label]="label" [title]="title">
         </map-marker>
       </google-map>
     </div>
   </div>
 
+  <h1 style="color:black; margin: 2rem; background-color:paleturquoise;">Informacion</h1>
   <footer class="top-border">
-
+    
     <section class="well1">
       <div class="container">
+        <p href="callto:#">Telefono: {{empresa.telefono}}</p>
+
+        <p href="callto:#">Horario de atención: {{empresa.horarioAtencion}}</p>
+
+        <p href="callto:#">Email: {{empresa.email}}</p>
+
+        <p href="callto:#">Domicilio: {{empresa.domicilio}}</p>
+
         <p class="rights">
-          {{empresa?.denominacion}} &#169; <span id="copyright-year"></span>
-          
-          <!-- {%FOOTER_LINK} -->
+          {{empresa?.denominacion}} &#169; <span id="copyright-year">2021</span>
         </p>
       </div>
     </section>
   </footer>
+  <h1 style="color:black; margin: 2rem; background-color:paleturquoise;">-</h1>
 </footer>
 
 </html>

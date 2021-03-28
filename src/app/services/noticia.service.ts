@@ -39,5 +39,10 @@ export class NoticiaService {
   public verArregloNoticiasPorTerminoAndId(id: number,term: string): Observable<Noticia[]>{
     return this.http.get<Noticia[]>(`${this.baseEndPoint}/${id}/noticias-filtrar/${term}`);
   }
+
+  //trae una noticia de la empresa
+  public verNoticiaPorId(idNot: number): Observable<Noticia>{
+    return this.http.get<Noticia>(`${this.baseEndPoint}/noticias/${idNot}`);
+  }
   
 }
