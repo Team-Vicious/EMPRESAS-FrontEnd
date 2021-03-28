@@ -12,14 +12,16 @@
 
       </a>
       <form class="form-inline">
-        <input class="form-control mr-sm-2" type="search"   placeholder="Buscar Noticia" aria-label="Search" (keyup)="filtrar($event.target.value)" >
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit" [routerLink]="['/empresa', empresa.id, 'buscador', termino]">Search</button>
+        <input class="form-control mr-sm-2" type="search" placeholder="Buscar Noticia" aria-label="Search"
+          (keyup)="filtrar($event.target.value)">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit"
+          [routerLink]="['/empresa', empresa.id, 'buscador', termino]">Search</button>
       </form>
     </nav>
 
   </header>
 
-  <div class="card">
+  <div class="card" style="color:black; margin: 2rem; background-color:paleturquoise;">
     <div class="card-header">
       Información
     </div>
@@ -36,35 +38,65 @@
     </div>
   </div>
 
-  <nav class="navbar navbar-light bg-light">
-    <form class="form-inline">
-      <button class="btn btn-outline-success" type="button" [routerLink]="['/home', empresa.id]">Inicio</button>
-      <button class="btn btn-sm btn-outline-secondary" type="button" routerLink="/index">Listar Empresas</button>
-    </form>
-  </nav>
+  <div class= "card" style="color:black; margin: 2rem; background-color:darkgrey;">
+    <nav class="navbar navbar-light bg-light">
+      <form class="form-inline">
+        <button class="btn btn-outline-success" type="button" [routerLink]="['/home', empresa.id]">Inicio</button>
+        <button class="btn btn-sm btn-outline-secondary" type="button" routerLink="/index">Listar Empresas</button>
+      </form>
+    </nav>
+  </div>
 
   <div class="card">
     <div class="card-header">
-      
     </div>
-    <div class="buscarTerminoEnNoticias(empresa.id,termino)">
-      <h1>Resultado de busqueda: {{termino}}</h1>
-      
 
-
-      <a href="">aca se pueden mostrar tarjetas con un ngFro con noticias y su info, y un boton que diga VER y abra la
-        noticia
-        --------------------------------------
-        <div class="card" style="width: 18rem;" *ngFor="let noticia of listaNoticia">
-          <img src="..." class="card-img-top" alt="...">
-          <div class="card-body"  >
-            <h5 class="card-title">{{noticia.titulo}}</h5>
-            <p class="card-text">{{noticia.resumen}}</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-          </div>
-        </div>
-        ------------------------------
-      </a>
+    <div class="resultadoBusqueda">
+      <h1>Resultado de la busqueda con el texto: {{termino}}</h1>
     </div>
+
     <p></p>
-    <button class="btn btn-outline-success" type="button"  routerLink="/empresa/1/detalle-noticia/1">Visitar Componente Detalle Noticia</button>
+
+    
+
+  </div>
+
+  <div style="margin: 10px 0 0 20px;">
+  <div class="card" style="width: 45rem; margin: 10px 0 0 20px;" *ngFor="let not of listaNoticia">
+    <div class="card-body">
+      <img src="/assets/images/{{not.imagen}}" class="card-img-top" alt="error al cargar imagen">
+      <p></p>
+      <h5 class="letraTitulo">{{not.titulo}}</h5>
+      <p class="card-text">{{not.resumen}}</p>
+      <a class="btn btn-primary" routerLink="/empresa/{{empresa.id}}/detalle-noticia/{{not.id}}">Ver Noticia</a>
+    
+
+    </div>
+    <div class="card"></div>
+  </div>
+</div>
+
+<footer>
+  <h1 style="color:black; margin: 2rem; background-color:paleturquoise;">Informacion</h1>
+  <footer class="top-border">
+    
+    <section class="well1">
+      <div class="container">
+        <p href="callto:#">Telefono: {{empresa.telefono}}</p>
+
+        <p href="callto:#">Horario de atención: {{empresa.horarioAtencion}}</p>
+
+        <p href="callto:#">Email: {{empresa.email}}</p>
+
+        <p href="callto:#">Domicilio: {{empresa.domicilio}}</p>
+
+        <p class="rights">
+          {{empresa?.denominacion}} &#169; <span id="copyright-year">2021</span>
+        </p>
+      </div>
+    </section>
+  </footer>
+  <h1 style="color:black; margin: 2rem; background-color:paleturquoise;">-</h1>
+</footer>
+  
+</body>

@@ -19,7 +19,7 @@
 
   </header>
 
-  <div class="card">
+  <div class="card" style="color:black; margin: 2rem; background-color:paleturquoise;">
     <div class="card-header">
       Información
     </div>
@@ -36,31 +36,70 @@
     </div>
   </div>
 
+  <div class= "card" style="color:black; margin: 2rem; background-color:darkgrey;">
   <nav class="navbar navbar-light bg-light">
     <form class="form-inline">
       <button class="btn btn-outline-success" type="button" [routerLink]="['/home', empresa.id]">Inicio</button>
       <button class="btn btn-sm btn-outline-secondary" type="button" routerLink="/index">Listar Empresas</button>
     </form>
   </nav>
+</div>
 
-  <nav class="navbar navbar-light bg-light">
-    <form class="form-inline">
-      <input class="form-control mr-sm-2" type="search" placeholder="Buscar Noticia" aria-label="Search" (keyup)="filtrar($event.target.value)">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit" [routerLink]="['/empresa', empresa.id, 'buscador', termino]">Search</button>
-    </form>
-  </nav>
 
   <div class="card">
-    <div class="card-header">
-
+    <div class="card-header" style="color:black; margin: 2rem; background-color:paleturquoise;">
+      <div style="text-align: center; font-size: 20;">
+        <h1>{{noticia.titulo}}</h1>
+      </div>
+      
     </div>
     <div class="resultadoBusqueda">
       
-      <p>-----------------ACA VA EL DETALLE DE LA NOTICIA--------------------</p>
-      
-    </div>
-  </div>
+      <div class="card-body">
+        <blockquote class="blockquote mb-0">
+          <footer class="blockquote-footer">
+            
+            <img src="/assets/images/{{noticia.imagen}}" alt="" class="card-img-top">
+            
   
+          </footer>
+        </blockquote>
+      </div>
+
+      <div>
+        <a href="callto:#">{{noticia.resumen}}</a>
+            
+      </div>
+
+      <div>
+        <a href="callto:#">{{noticia.contenidoHtml}}</a>
+      </div>
+    </div>
+    
+
+  </div>
+
+  <h1 style="color:black; margin: 2rem; background-color:paleturquoise;">Informacion</h1>
+  <footer class="top-border">
+    
+    <section class="well1">
+      <div class="container">
+        <p href="callto:#">Telefono: {{empresa.telefono}}</p>
+
+        <p href="callto:#">Horario de atención: {{empresa.horarioAtencion}}</p>
+
+        <p href="callto:#">Email: {{empresa.email}}</p>
+
+        <p href="callto:#">Domicilio: {{empresa.domicilio}}</p>
+
+        <p class="rights">
+          {{empresa?.denominacion}} &#169; <span id="copyright-year">2021</span>
+        </p>
+      </div>
+    </section>
+  </footer>
+  <h1 style="color:black; margin: 2rem; background-color:paleturquoise;">-</h1>
+
 
 </body>
 

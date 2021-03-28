@@ -15,6 +15,7 @@ export class DetalleComponent implements OnInit {
   empresa: Empresa;
   listaNoticia: Noticia[];
   termino: string;
+  noticia: Noticia;
 
   constructor(
     private services: EmpresaService,
@@ -36,10 +37,10 @@ export class DetalleComponent implements OnInit {
 
     this.services.ver(id).subscribe(empresa => this.empresa = empresa);
 
-    //ID DE NOTICIA-falta metodo del service!
-    let idNoticia;
+    //ID DE NOTICIA-
+    let idNoticia = +this.route.snapshot.paramMap.get('idn');
 
-    // FALTA buscar NOTICIA POR ID
+    this.serviceNoticia.verNoticiaPorId(idNoticia).subscribe(noticia => this.noticia = noticia);
 
   }
 

@@ -1,3 +1,10 @@
 .resultadoBusqueda{
     text-align: center;
 }
+
+.letraTitulo{
+    font-style: italic;
+    font-size: 17px;
+    color: black;
+}
+

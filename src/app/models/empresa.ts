@@ -6,7 +6,8 @@ export class Empresa {
     telefono !: string;
     horarioAtencion!: string;
     quienSomos !: string;
-    iframe !: string;
+    latitud !: string;
+    longitud !: string;
     domicilio !: string;
     email !: string;
     noticias!: Noticia[];
