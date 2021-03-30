@@ -17,6 +17,8 @@ export class DetalleComponent implements OnInit {
   termino: string;
   noticia: Noticia;
 
+  
+
   constructor(
     private services: EmpresaService,
     private serviceNoticia: NoticiaService,

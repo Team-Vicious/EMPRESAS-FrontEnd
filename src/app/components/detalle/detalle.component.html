@@ -36,6 +36,7 @@
     </div>
   </div>
 
+  
   <div class= "card" style="color:black; margin: 2rem; background-color:darkgrey;">
   <nav class="navbar navbar-light bg-light">
     <form class="form-inline">
@@ -66,18 +67,17 @@
         </blockquote>
       </div>
 
-      <div>
-        <a href="callto:#">{{noticia.resumen}}</a>
-            
-      </div>
+    
 
-      <div>
-        <a href="callto:#">{{noticia.contenidoHtml}}</a>
-      </div>
+      
+      <div [innerHTML]="noticia.contenidoHtml"></div>
     </div>
     
 
+    
   </div>
+
+  
 
   <h1 style="color:black; margin: 2rem; background-color:paleturquoise;">Informacion</h1>
   <footer class="top-border">

@@ -12,7 +12,6 @@ export class IndexComponent implements OnInit {
 
 
   lista: Empresa[] = [];
-  
 
   constructor(private services: EmpresaService) { 
     
