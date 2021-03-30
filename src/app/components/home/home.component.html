@@ -63,7 +63,7 @@
     </ol>
     <div class="carousel-inner">
       <div class="carousel-item active"
-        [routerLink]="['/empresa/{{empresa.id}}/detalle-noticia/{{listaNoticia[0].id}}']">
+      routerLink="/empresa/{{empresa.id}}/detalle-noticia/{{listaNoticia[0].id}}">
         <img class="d-block w-100" src="/assets/images/{{listaNoticia[0].imagen}}" alt="First slide" width="400"
           height="450">
         <div class="carousel-caption d-none d-md-block">
@@ -72,7 +72,7 @@
           <p class="letraResumen">{{listaNoticia[0]?.resumen}}</p>
         </div>
       </div>
-      <div class="carousel-item" [routerLink]="['/empresa/{{empresa.id}}/detalle-noticia/{{listaNoticia[1].id}}']">
+      <div class="carousel-item" routerLink="/empresa/{{empresa.id}}/detalle-noticia/{{listaNoticia[1].id}}">
         <img class="d-block w-100" src="/assets/images/{{listaNoticia[1].imagen}}" alt="Second slide" width="400"
           height="450">
         <div class="carousel-caption d-none d-md-block">
@@ -81,7 +81,7 @@
           <p class="letraResumen">{{listaNoticia[1]?.resumen}}</p>
         </div>
       </div>
-      <div class="carousel-item" [routerLink]="['/empresa/{{empresa.id}}/detalle-noticia/{{listaNoticia[2].id}}']">
+      <div class="carousel-item" routerLink="/empresa/{{empresa.id}}/detalle-noticia/{{listaNoticia[2].id}}">
         <img class="d-block w-100" src="/assets/images/{{listaNoticia[2].imagen}}" alt="Third slide" width="400"
           height="450">
         <div class="carousel-caption d-none d-md-block">
