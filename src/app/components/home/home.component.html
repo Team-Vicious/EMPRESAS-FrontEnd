@@ -54,52 +54,31 @@
                             CONTENT
   =========================================================-->
 
-
-  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+  <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
-      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+      <li data-target="#myCarousel" *ngFor="let noticia of listaNoticia;let i = index" attr.data-slide-to="{{i}}" ngClass="i == 0 ? 'active' : ''"></li>
     </ol>
     <div class="carousel-inner">
-      <div class="carousel-item active"
-      routerLink="/empresa/{{empresa.id}}/detalle-noticia/{{listaNoticia[0].id}}">
-        <img class="d-block w-100" src="/assets/images/{{listaNoticia[0].imagen}}" alt="First slide" width="400"
-          height="450">
+      <div class="carousel-item" *ngFor="let noticia of listaNoticia;let index = index;let isFirst = first" [ngClass]="{active:isFirst}"
+      routerLink="/empresa/{{empresa.id}}/detalle-noticia/{{noticia.id}}">
+        <img src="/assets/images/{{noticia.imagen}}" class="d-block w-100" [alt]="noticia.titulo" width="1700" height="700">
         <div class="carousel-caption d-none d-md-block">
-          <h2 class="letraTitulo">{{listaNoticia[0].titulo}}</h2>
-          <p>------------------------------------------------</p>
-          <p class="letraResumen">{{listaNoticia[0]?.resumen}}</p>
-        </div>
-      </div>
-      <div class="carousel-item" routerLink="/empresa/{{empresa.id}}/detalle-noticia/{{listaNoticia[1].id}}">
-        <img class="d-block w-100" src="/assets/images/{{listaNoticia[1].imagen}}" alt="Second slide" width="400"
-          height="450">
-        <div class="carousel-caption d-none d-md-block">
-          <h5 class="letraTitulo">{{listaNoticia[1]?.titulo}}</h5>
-          <p>------------------------------------------------</p>
-          <p class="letraResumen">{{listaNoticia[1]?.resumen}}</p>
-        </div>
-      </div>
-      <div class="carousel-item" routerLink="/empresa/{{empresa.id}}/detalle-noticia/{{listaNoticia[2].id}}">
-        <img class="d-block w-100" src="/assets/images/{{listaNoticia[2].imagen}}" alt="Third slide" width="400"
-          height="450">
-        <div class="carousel-caption d-none d-md-block">
-          <h5 class="letraTitulo">{{listaNoticia[2]?.titulo}}</h5>
-          <p>------------------------------------------------</p>
-          <p class="letraResumen">{{listaNoticia[2]?.resumen}}</p>
+          <h5 class="letraTitulo">{{noticia?.titulo}}</h5>
+          <p class="letraResumen">{{noticia?.resumen}}</p>
         </div>
       </div>
     </div>
-    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+    <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
       <span class="sr-only">Previous</span>
     </a>
-    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+    <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
       <span class="carousel-control-next-icon" aria-hidden="true"></span>
       <span class="sr-only">Next</span>
     </a>
   </div>
+
+
 
 </body>
 
@@ -130,7 +109,7 @@
           Donde estamos
         </h2>
       </blockquote>
-      <google-map width="1300" height="500" [center]="position">
+      <google-map width="1900" height="500" [center]="position">
         <map-marker [position]="position" [label]="label" [title]="title">
         </map-marker>
       </google-map>
